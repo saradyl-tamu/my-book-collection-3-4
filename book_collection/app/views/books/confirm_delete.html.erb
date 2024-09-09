@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confirm Delete</title>
+</head>
+<body>
+  <h1>Are you sure you want to delete this book?</h1>
+
+  <p>
+    Title: <%= @book.title %>
+  </p>
+
+  <!-- Form to actually delete the book -->
+  <%= form_with model: @book, url: book_path(@book), method: :delete do %>
+    <%= submit_tag 'Yes, Delete' %>
+  <% end %>
+
+  <!-- Link back to the home page -->
+  <%= link_to 'No, Go Back to Home', root_path %>
+</body>
+</html>

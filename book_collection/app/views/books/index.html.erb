@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Collection</title>
+</head>
+<body>
+  <h1>Book Collection</h1>
+
+  <!-- Flash notices -->
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
+
+  <!-- Link to add a new book -->
+  <%= link_to 'Add a Book', new_book_path %>
+
+  <!-- Display list of books -->
+  <ul>
+    <% @books.each do |book| %>
+      <li>
+        <%= book.title %> 
+        <%= link_to 'Show', book_path(book) %> |
+        <%= link_to 'Edit', edit_book_path(book) %> |
+        <%= link_to 'Destroy', confirm_delete_book_path(book) %>
+      </li>
+    <% end %>
+  </ul>
+
+</body>
+</html>
